@@ -1,8 +1,8 @@
 <template>
   <!-- <div class="story3">
       <h1>This is 3</h1>
-    </div> -->
-  <BackgroundChanger>
+  </div> -->
+  <BackgroundChanger class="story3">
     <div class="page">
       <img src="../assets/story3/开场蛋.png" alt="" class="sticker">
       <img src="../assets/story3/开场白.png" alt="" class="sticker floating">
@@ -104,7 +104,7 @@ export default {
       // const t = gsap.timeline();
       ScrollTrigger.create({
         trigger: '.image1',
-        start: 'top 90%',
+        start: 'top 100%',
         end: 'top 20%',
         // markers: true,
         scrub: true,
@@ -121,7 +121,7 @@ export default {
       })
       ScrollTrigger.create({
         trigger: '.image2',
-        start: 'top 90%',
+        start: 'top 100%',
         end: 'top 20%',
         scrub: true,
         animation:
@@ -137,7 +137,7 @@ export default {
       })
       ScrollTrigger.create({
         trigger: '.image4',
-        start: 'top 90%',
+        start: 'top 100%',
         end: 'top 20%',
         scrub: true,
         animation:
@@ -153,7 +153,7 @@ export default {
       })
       ScrollTrigger.create({
         trigger: '.image5',
-        start: 'top 90%',
+        start: 'top 100%',
         end: 'top 20%',
         scrub: true,
         animation:
@@ -169,7 +169,7 @@ export default {
       })
       ScrollTrigger.create({
         trigger: '.image6',
-        start: 'top 90%',
+        start: 'top 100%',
         end: 'top 20%',
         scrub: true,
         animation:
@@ -185,7 +185,7 @@ export default {
       })
       ScrollTrigger.create({
         trigger: '.image7',
-        start: 'top 90%',
+        start: 'top 100%',
         end: 'top 20%',
         scrub: true,
         animation:
@@ -201,7 +201,7 @@ export default {
       })
       ScrollTrigger.create({
         trigger: '.image8',
-        start: 'top 90%',
+        start: 'top 100%',
         end: 'top 20%',
         scrub: true,
         animation:
@@ -217,7 +217,7 @@ export default {
       })
       ScrollTrigger.create({
         trigger: '.image9',
-        start: 'top 90%',
+        start: 'top 100%',
         end: 'top 20%',
         scrub: true,
         animation:
@@ -233,7 +233,7 @@ export default {
       })
       ScrollTrigger.create({
         trigger: '.image10',
-        start: 'top 90%',
+        start: 'top 100%',
         end: 'top 20%',
         scrub: true,
         animation:
@@ -249,7 +249,7 @@ export default {
       })
       ScrollTrigger.create({
         trigger: '.image11',
-        start: 'top 90%',
+        start: 'top 100%',
         end: 'top 20%',
         scrub: true,
         animation:
@@ -265,7 +265,7 @@ export default {
       })
       ScrollTrigger.create({
         trigger: '.image12',
-        start: 'top 90%',
+        start: 'top 100%',
         end: 'top 20%',
         scrub: true,
         animation:
@@ -281,7 +281,7 @@ export default {
       })
       ScrollTrigger.create({
         trigger: '.image13',
-        start: 'top 90%',
+        start: 'top 100%',
         end: 'top 20%',
         scrub: true,
         animation:
@@ -297,7 +297,7 @@ export default {
       })
       ScrollTrigger.create({
         trigger: '.image14',
-        start: 'top 90%',
+        start: 'top 100%',
         end: 'top 20%',
         scrub: true,
         animation:
@@ -313,7 +313,7 @@ export default {
       })
       ScrollTrigger.create({
         trigger: '.image15',
-        start: 'top 90%',
+        start: 'top 100%',
         end: 'top 20%',
         scrub: true,
         animation:
@@ -329,7 +329,7 @@ export default {
       })
       ScrollTrigger.create({
         trigger: '.image16',
-        start: 'top 90%',
+        start: 'top 100%',
         end: 'top 20%',
         scrub: true,
         animation:

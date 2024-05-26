@@ -32,18 +32,18 @@
       <img src="../assets/story3/7-汗.png" alt="" id="floating7sweat">
     </div>
     <div class="page">
-      <img src="../assets/story3/8.png" alt="" class="image8 imageType">
+      <img src="../assets/story3/8.png" alt="" class="animate__animated image8 imageType">
     </div>
-    <div class="page">
-      <img src="../assets/story3/9.png" alt="" class="image9 imageType">
-      <img src="../assets/story3/9-汗左.png" alt="" id="" z-index:1>
-      <img src="../assets/story3/9-汗右.png" alt="" id="" z-index:1>
+    <div class="page" ref="pageElement">
+      <img src="../assets/story3/9.png" alt="" class="image9 imageType1 hidden">
+      <img src="../assets/story3/9-汗左.png" alt="" id="floating9left" z-index:1 class="image9-left hidden">
+      <img src="../assets/story3/9-汗右.png" alt="" id="floating9right" z-index:1 class="image9-right hidden">
     </div>
     <div class="page">
       <img src="../assets/story3/10.png" alt="" class="image10 imageType">
-      <img src="../assets/story3/10-怒气右.png" alt="" id="" z-index:1>
-      <img src="../assets/story3/10-怒气左.png" alt="" id="" z-index:1>
-      <img src="../assets/story3/10-怒气身.png" alt="" id="" z-index:1>
+      <img src="../assets/story3/10-怒气左.png" alt="" id="floating10left" class="angry10left">
+      <img src="../assets/story3/10-怒气右.png" alt="" id="floating10right" class="angry10right">
+      <img src="../assets/story3/10-怒气身.png" alt="" id="floating10body" class="angry10body">
     </div>
     <div class="page">
       <img src="../assets/story3/11.png" alt="" class="image11 imageType">
@@ -65,9 +65,10 @@
     <div class="page">
       <img src="../assets/story3/16.png" alt="" class="image16 imageType">
     </div>
-    <div class="page">
+    <div class="page" @keydown.space.prevent="handleSpacePress">
       <img src="../assets/story3/17-字.png" alt="" id="" class="imageType" z-index:1>
       <img src="../assets/story3/17.png" class="imageType" alt="">
+      <img src="../assets/story3/空格图标.png" alt="" class="space">
     </div>
 
   </BackgroundChanger>
@@ -78,6 +79,7 @@ import "/node_modules/animate.css"
 import BackgroundChanger from '../components/BackgroundChanger.vue'
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default {
@@ -87,15 +89,19 @@ export default {
   },
   data() {
     return {
-      stickerStyle: {
-        transform: 'scale(1)'
-      }
+      isIntersecting: false, // 用于追踪元素是否进入视口
+      animationState: 0, // 0: 未触发, 1: 已经触发进入动画
     }
   },
   mounted() {
-    window.addEventListener('scroll', this.handleScroll, true);
-    this.imageTroll();
-    this.sparkling();
+    setTimeout(() => {
+      this.imageTroll();
+      this.sparkling();
+      this.setupIntersectionObserver();
+      this.angry();
+      ScrollTrigger.refresh();
+    }, 500);
+
   },
   beforeUnmount() {
     window.removeEventListener('scroll', this.handleScroll)
@@ -377,27 +383,151 @@ export default {
     },
     sparkling() {
       gsap.to(".star", {
+        duration: 1.2,
+        scale: "1",
+        repeat: -1,
+        yoyo: true,
+        opacity: "0.3"
+      });
+      gsap.to(".space", {
         duration: 0.8,
         scale: "1",
         repeat: -1,
         yoyo: true,
         opacity: "0.3"
       });
-      gsap.to(".light",{
+      gsap.to(".light", {
         duration: 3.5,
         scale: 1.1,
         repeat: -1,
-        yoyo:true,
-        rotate:3,
+        yoyo: true,
+        rotate: 3,
         opacity: "0.6"
       });
-    }
+    },
+    // setupIntersectionObserver() {
+    //   const observerOptions = {
+    //     rootMargin: "0px",
+    //     threshold: 0.1, // 当元素顶部到达视口的60%时触发
+    //   };
+    //   const callback = (entries, observer) => {
+    //     entries.forEach((entry) => {
+    //       if (entry.isIntersecting) {
+    //         // 获取图片元素并先移除隐藏类，再添加动画类
+    //         const parentContainer = entry.target;
+    //         const imageElement = parentContainer.querySelector(".image9");
+    //         const imageElement1 = parentContainer.querySelector(".image9-left");
+    //         const imageElement2 = parentContainer.querySelector(".image9-right");
+    //         if (imageElement) {
+    //           imageElement.classList.add("animate__animated", "animate__lightSpeedInLeft");
+    //           imageElement.classList.remove("hidden");
+    //           imageElement1.classList.remove("hidden");
+    //           imageElement2.classList.remove("hidden");
+    //           imageElement.classList.remove("animate__animated", "animate__lightSpeedInLeft");//移除，这是为了下一次进入能够再展示
+    //           setTimeout(() => {
+    //             imageElement.classList.add("animate__animated", "animate__lightSpeedInLeft");
+    //             imageElement1.classList.add("hidden");
+    //             imageElement2.classList.add("hidden");
+    //           }, 1000);
+    //         }
+    //       }
+    //     });
+    //   };
+
+    //   const observer9in = new IntersectionObserver(callback, observerOptions);
+    //   observer9in.observe(this.$refs.pageElement); // 观察特定的.page元素
+    // },
+    setupIntersectionObserver() {
+      const observerOptions = {
+        rootMargin: "0px",
+        threshold: 0.5, // 当元素顶部到达视口的50%时触发
+      };
+      const callback = (entries, observer) => {
+        entries.forEach((entry) => {
+          const parentContainer = entry.target;
+          const imageElement = parentContainer.querySelector(".image9");
+          const imageElement1 = parentContainer.querySelector(".image9-left");
+          const imageElement2 = parentContainer.querySelector(".image9-right");
+
+          if (entry.isIntersecting && this.animationState === 0) {
+            this.animationState = 1;
+            if (imageElement) {
+              imageElement.classList.add("animate__animated", "animate__fadeInLeft");
+              imageElement.classList.remove("hidden");
+              imageElement1.classList.remove("hidden");
+              imageElement2.classList.remove("hidden");
+              setTimeout(() => {
+                imageElement.classList.add("hidden"); // 动画结束后隐藏
+                imageElement1.classList.add("hidden");
+                imageElement2.classList.add("hidden");
+                imageElement.classList.remove("animate__animated", "animate__fadeInLeft"); // 移除动画类，准备下一次动画
+              }, 3000); // 根据动画持续时间调整
+            }
+          }
+          else if (!entry.isIntersecting && this.animationState === 1) {
+            // 离开视口动画
+            this.animationState = 0;
+            if (imageElement) {
+              imageElement.classList.add("animate__animated", "animate__fadeOutRight"); // 或其他适合的离开动画类名
+              imageElement1.classList.add("hidden");
+              imageElement2.classList.add("hidden");
+              setTimeout(() => {
+                imageElement.classList.add("hidden"); // 动画结束后隐藏
+                imageElement.classList.remove("animate__animated", "animate__fadeOutRight"); // 移除动画类，准备下一次动画
+              }, 300); // 根据动画持续时间调整
+            }
+          }
+        });
+      };
+
+      const observer9in = new IntersectionObserver(callback, observerOptions);
+      observer9in.observe(this.$refs.pageElement); // 确保ref正确指向目标元素
+    },
+    angry() {
+      gsap.to(".angry10left", {
+        duration: 0.5,
+        scale: 1.2,
+        repeat: -1,
+        yoyo: true,
+        rotate: -3,
+      });
+      gsap.to(".angry10right", {
+        duration: 0.5,
+        scale: 1.2,
+        repeat: -1,
+        yoyo: true,
+        rotate: 3,
+      });
+      gsap.to(".angry10body", {
+        duration: 0.2,
+        scale: 1.2,
+        repeat: -1,
+        yoyo: true,
+        rotate: -2,
+      });
+    },
+    jumpToHome() {
+
+    },
+    handleSpacePress(event) {
+      console.log('空格键被按下');
+      // 阻止空格键的默认行为，例如页面滚动
+      event.preventDefault();
+      // 这里可以执行您希望空格键按下时的操作
+      // 例如跳转页面、播放/暂停动画等
+      // this.jumpToHome(); // 假设有一个这样的方法
+    },
   }
 
 };
 </script>
 
 <style scoped>
+.animate__animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
 .page {
   /*页容器 */
   display: flex;
@@ -411,6 +541,10 @@ export default {
 
 .imageType {
   width: 32vw;
+}
+
+.imageType1 {
+  width: 40vw;
 }
 
 #page3Hen {
@@ -439,6 +573,10 @@ export default {
   /* 确保浮动图片在主图片之上 */
 }
 
+.hidden {
+  opacity: 0;
+}
+
 #floating7word {
   position: absolute;
   top: 48vh;
@@ -449,24 +587,73 @@ export default {
 
 #floating7sweat {
   position: absolute;
-  top: 58vh;
+  top: 59vh;
   left: 49vw;
   width: 3vw;
   z-index: 1;
 }
 
-.star{
+#floating9left {
   position: absolute;
-  top:25vh;
-  left:33vw;
-  width:26vw;
+  top: 55vh;
+  left: 36vw;
+  width: 4vw;
+  z-index: 1;
+}
+
+#floating9right {
+  position: absolute;
+  top: 55vh;
+  left: 56vw;
+  width: 3vw;
+  z-index: 1;
+}
+
+#floating10left {
+  position: absolute;
+  top: 42vh;
+  left: 31vw;
+  width: 2vw;
+  z-index: 1;
+}
+
+#floating10right {
+  position: absolute;
+  top: 42vh;
+  left: 40vw;
+  width: 3vw;
+  z-index: 1;
+}
+
+#floating10body {
+  position: absolute;
+  top: 49vh;
+  left: 37vw;
+  width: 3vw;
+  z-index: 1;
+}
+
+.star {
+  position: absolute;
+  top: 25vh;
+  left: 33vw;
+  width: 26vw;
   z-index: 2;
 }
-.light{
+
+.light {
   position: absolute;
-  top:35vh;
-  left:34vw;
-  width:26vw;
+  top: 35vh;
+  left: 34vw;
+  width: 26vw;
+  z-index: 1;
+}
+
+.space {
+  position: absolute;
+  top: 80vh;
+  left: 80vw;
+  width: 5vw;
   z-index: 1;
 }
 </style>

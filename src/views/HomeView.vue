@@ -23,7 +23,7 @@
     </section>
 
     <section class="p2" style="height: 100vh;">
-      <img class="twos" src="../assets/首页8/故事1.1.png" style="top:20%;">
+      <img class="twos" src="../assets/首页8/故事1.1.png" style="top:10%;">
     </section>
 
     <section class="p3" style="height: 100vh;">
@@ -170,8 +170,8 @@ export default {
             .fromTo('.p4_2l', { opacity: 0 }, { opacity: 1 })
             .fromTo('.p5downegg', { y: 500, opacity: 0 }, { y: -500, opacity: 1 })
       });
-      let sections = gsap.utils.toArray(".panel");
 
+      let sections = gsap.utils.toArray(".panel");
       gsap.to(sections, {
         xPercent: -100 * (sections.length - 1),
         ease: "none",
@@ -201,6 +201,10 @@ export default {
 </script>
 
 <style scoped>
+.story {
+  background-color: #f2eadf;
+}
+
 .p0 {
   height: 100%;
   width: 100%;

@@ -4,8 +4,8 @@
   </div> -->
   <BackgroundChanger>
     <div class="page">
-      <img src="../assets/story3/开场蛋.png" alt="" class="animate__animated animate__bounceInUp">
-      <img src="../assets/story3/开场白.png" alt="" class="floating animate__animated animate__bounceInDown">
+      <img src="../assets/story3/开场蛋.png" alt="" class="animate__animated animate__bounceInUp" style="width:30vw;">
+      <img src="../assets/story3/开场白.png" alt="" class="floating animate__animated animate__bounceInDown" style="width:30vw;">
     </div>
     <div class="page">
       <img src="../assets/story3/1.png" alt="" class="image1 imageType">

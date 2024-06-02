@@ -18,7 +18,7 @@
     <transition name="fade">
       <img v-if="newImageVisible && newClickCount > 0 && stage === 1" src="../assets/story2/对话2-1.png" alt="对话2-1" class="dialog2-image">
     </transition>
-    <transition name="fade">
+    <transition name="fadefromsmall">
       <img v-if="newImageVisible && newClickCount > 1 && stage === 1" src="../assets/story2/对话2-2.png" alt="对话2-2" class="dialog2-image">
     </transition>
     <transition name="fade-in-up">
@@ -36,7 +36,7 @@
     <transition name="fade">
       <img v-if="stage === 4 && newClickCount > 6" src="../assets/story2/对话4-1.png" alt="对话4-1" class="dialog2-image">
     </transition>
-    <transition name="fade">
+    <transition name="fadefromsmall">
       <img v-if="stage === 4 && newClickCount > 7" src="../assets/story2/对话4-2.png" alt="对话4-2" class="dialog2-image">
     </transition>
     <transition name="bounce-left-to-right" @after-enter="handleBouncingEnd">
@@ -60,7 +60,84 @@
     <transition name="fade">
       <img v-if="stage === 6 && newClickCount > 14" src="../assets/story2/对话6-2.png" alt="对话6-2" class="dialog2-image">
     </transition>
-    <button v-if="showEggButton" class="action-button" @click="showNewImage"></button>
+    <transition name="fade-in-jumping">
+      <img v-if="stage === 6 && newClickCount > 14" src="../assets/story2/music2.png" alt="music2" class="music2-image">
+    </transition>
+    <transition name="fade-in-up">
+      <img v-if="stage === 7 && newClickCount > 15" src="../assets/story2/文字7.png" alt="文字7" class="text-image">
+    </transition>
+    <transition name="fade">
+      <img v-if="stage === 7 && newClickCount > 16" src="../assets/story2/对话7-1.png" alt="对话7-1" class="dialog-image">
+    </transition>
+    <transition name="fade">
+      <img v-if="stage === 7 && newClickCount > 17" src="../assets/story2/对话7-2.png" alt="对话7-2" class="dialog-image">
+    </transition>
+    <transition name="fade-in-jumping2">
+      <img v-if="stage === 7 && newClickCount > 17" src="../assets/story2/music3.png" alt="music3" class="music3-image">
+    </transition>
+    <transition name="fade-in-up">
+      <img v-if="stage === 8 && newClickCount > 18" src="../assets/story2/对话8-1.png" alt="对话8-1" class="dialog2-image">
+    </transition>
+    <transition name="fade">
+      <img v-if="stage === 8 && newClickCount > 19" src="../assets/story2/对话8-2.png" alt="对话8-2" class="dialog2-image">
+    </transition>
+    
+    <img v-if="stage === 8 && newClickCount > 19" src="../assets/story2/对话8mouth.png" alt="对话8-2" class="dialog2-image speak">
+    
+    <transition name="fade">
+      <img v-if="stage === 8 && newClickCount > 20" src="../assets/story2/对话8-3.png" alt="对话8-3" class="dialog2-image">
+    </transition>
+    <transition name="fade-in-up">
+      <img v-if="stage === 9 && newClickCount > 21" src="../assets/story2/对话9-1.png" alt="对话9-1" class="dialog2-image">
+    </transition>
+    <transition name="fade">
+      <img v-if="stage === 9 && newClickCount > 22" src="../assets/story2/对话9-2-1.png" alt="对话9-2-1" class="dialog2-image">
+    </transition>
+  <transition name="fade-in-down">
+    <img v-if="stage === 9 && newClickCount > 22" src="../assets/story2/对话9sweat.png" alt="sweat" class="dialog2-image">
+  </transition>
+  <transition name="fade">
+      <img v-if="stage === 9 && newClickCount > 23" src="../assets/story2/对话9-3.png" alt="对话9-3" class="dialog2-image">
+  </transition>
+  <transition name="fade-in-up">
+      <img v-if="stage === 10 && newClickCount > 24" src="../assets/story2/对话10-1.png" alt="对话10-1" class="dialog2-image">
+  </transition>
+  <img v-if="stage === 10 && newClickCount > 25" src="../assets/story2/dot1.png" alt="dot1" class="dialog2-image dot1">
+  <img v-if="stage === 10 && newClickCount > 25" src="../assets/story2/dot2.png" alt="dot2" class="dialog2-image dot2">
+  <img v-if="stage === 10 && newClickCount > 25" src="../assets/story2/dot3.png" alt="dot3" class="dialog2-image dot3">
+  <img v-if="stage === 10 && newClickCount > 25" src="../assets/story2/dot4.png" alt="dot4" class="dialog2-image dot4">
+  <img v-if="stage === 10 && newClickCount > 25" src="../assets/story2/dot5.png" alt="dot5" class="dialog2-image dot5">
+  <img v-if="stage === 10 && newClickCount > 25" src="../assets/story2/dot6.png" alt="dot6" class="dialog2-image dot6">
+  
+  <transition name="fade-in-up">
+      <img v-if="stage === 11 && newClickCount > 26" src="../assets/story2/对话11.png" alt="对话11" class="dialog2-image">
+  </transition>
+  <transition name="fade-in-down">
+      <img v-if="stage === 11 && newClickCount > 27" src="../assets/story2/文字11.png" alt="文字11" class="dialog2-image">
+  </transition>
+  <transition name="fade-in-up">
+      <img v-if="stage === 12 && newClickCount > 28" src="../assets/story2/对话12.png" alt="对话12" class="dialog2-image">
+  </transition>
+  <transition name="fade">
+      <img v-if="stage === 12 && newClickCount > 29" src="../assets/story2/文字12.png" alt="文字12" class="dialog2-image">
+  </transition>
+  <transition name="fadefromsmall">
+      <img v-if="stage === 13 && newClickCount > 30" src="../assets/story2/文字13.png" alt="文字13" class="dialog2-image">
+  </transition>
+  <transition name="fade2">
+      <img v-if="stage === 13 && newClickCount > 30" src="../assets/story2/手13.png" alt="手13" class="dialog2-image">
+  </transition>
+  <transition name="fade-in-up">
+      <img v-if="stage === 14 && newClickCount > 31" src="../assets/story2/手14.png" alt="手14" class="dialog2-image">
+  </transition>
+  <transition name="fade">
+      <img v-if="stage === 14 && newClickCount > 32" src="../assets/story2/双蛋14.png" alt="双蛋14" class="dialog2-image">
+  </transition>
+  <transition name="fade-in-up">
+      <img v-if="stage === 14 && newClickCount > 33" src="../assets/story2/文字14.png" alt="文字14" class="dialog2-image">
+  </transition>
+
+  <button v-if="showEggButton" class="action-button" @click="showNewImage"></button>
   </div>
 </template>
 
@@ -131,6 +208,49 @@ export default {
       }else if (this.stage === 6 && this.newClickCount < 15) {
         this.newClickCount++;
       }
+      else if (this.stage === 6 && this.newClickCount === 15) {
+        this.stage = 7;
+        this.newClickCount++;
+      }else if (this.stage === 7 && this.newClickCount < 18) {
+        this.newClickCount++;
+      }
+      else if (this.stage === 7 && this.newClickCount === 18) {
+        this.stage = 8;
+        this.newClickCount++;
+      }else if (this.stage === 8 && this.newClickCount < 21) {
+        this.newClickCount++;
+      }else if (this.stage === 8 && this.newClickCount === 21) {
+        this.stage = 9;
+        this.newClickCount++;
+      }else if (this.stage === 9 && this.newClickCount < 24) {
+        this.newClickCount++;
+      }else if (this.stage === 9 && this.newClickCount === 24) {
+        this.stage = 10;
+        this.newClickCount++;
+      }else if (this.stage === 10 && this.newClickCount < 26) {
+        this.newClickCount++;
+      }else if (this.stage === 10 && this.newClickCount === 26) {
+        this.stage = 11;
+        this.newClickCount++;
+      }else if (this.stage === 11 && this.newClickCount < 28) {
+        this.newClickCount++;
+      }else if (this.stage === 11 && this.newClickCount === 28) {
+        this.stage = 12;
+        this.newClickCount++;
+      }else if (this.stage === 12 && this.newClickCount < 30) {
+        this.newClickCount++;
+      }else if (this.stage === 12 && this.newClickCount === 30) {
+        this.stage = 13;
+        this.newClickCount++;
+      }else if (this.stage === 13 && this.newClickCount < 31) {
+        this.newClickCount++;
+      }else if (this.stage === 13 && this.newClickCount === 31) {
+        this.stage = 14;
+        this.newClickCount++;
+      }else if (this.stage === 14 && this.newClickCount < 34) {
+        this.newClickCount++;
+      }
+
     }
   }
 };
@@ -138,6 +258,8 @@ export default {
 
 <style>
 .about {
+
+  background-color: rgb(239, 232, 224);
   min-height: 100vh;
   min-width: 100vw;
   display: flex;
@@ -145,14 +267,7 @@ export default {
   justify-content: center;
   position: relative;
   overflow: hidden;
-}
-
-body {
   cursor:url("../assets/egg2cursor.png"),auto;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: rgb(239, 232, 224);
 }
 
 .text-image,
@@ -173,6 +288,7 @@ body {
 .dialog-image {
   top: 25%;
   left: 20%;
+  max-width: 80%;
 }
 
 .dialog2-image {
@@ -190,6 +306,20 @@ body {
   top: 80%;
 }
 
+.music2-image{
+  position: relative;
+  max-width: 80%;
+  left:-6%;
+  transform: translateY(4%);
+}
+
+.music3-image{
+  position: relative;
+  max-width: 80%;
+  left:-3%;
+  transform: translateY(34%);
+}
+
 .fade-in-up-enter-active {
   animation: fadeInUp 1s ease-out forwards;
 }
@@ -197,11 +327,85 @@ body {
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(200%);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.fade-in-jumping-enter-active {
+  animation: fadeInJumping 2s linear forwards;
+}
+
+@keyframes fadeInJumping {
+  0% {
+    opacity: 0;
+    transform: translateY(4%);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(8%);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(4%);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(4%);
+  }
+}
+
+.fade-in-jumping2-enter-active {
+  animation: fadeInJumping2 2s linear forwards;
+}
+
+@keyframes fadeInJumping2 {
+  0% {
+    opacity: 0;
+    scale:1;
+    transform: translateY(34%);
+  }
+  25% {
+    opacity: 1;
+    scale:0.9;
+    transform: translateY(38%);
+  }
+  50% {
+    opacity: 1;
+    scale:1;
+    transform: translateY(34%);
+  }
+  75% {
+    opacity: 1;
+    scale:0.9;
+    transform: translateY(30%);
+  }
+  100% {
+    opacity: 1;
+    scale:1;
+    transform: translateY(34%);
+  }
+}
+
+.fade2-enter-active {
+  animation: fade2 1s ease-out forwards;
+}
+
+@keyframes fade2 {
+  0% {
+    opacity: 0;
+    scale: 0.8;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
   }
 }
 
@@ -214,6 +418,25 @@ body {
     opacity: 0;
   }
   100% {
+    opacity: 1;
+  }
+}
+
+.fadefromsmall-enter-active {
+  animation: fadefromsmall 0.5s ease-out forwards;
+}
+
+@keyframes fadefromsmall {
+  0% {
+    scale: 0.1;
+    opacity: 0;
+  }
+  70% {
+    scale: 1.2;
+    opacity: 1;
+  }
+  100% {
+    scale: 1;
     opacity: 1;
   }
 }
@@ -236,31 +459,93 @@ body {
     opacity: 0;
   }
 }
+
 @keyframes bounceLeftToRight {
   0% {
     opacity: 0;
-    transform: translateX(-100vw) translateY(60px);
+    transform: translateX(-100vw) translateY(40px);
   }
   25% {
     opacity: 1;
-    transform: translateX(-50vw) translateY(120px);
+    transform: translateX(-50vw) translateY(140px);
   }
   50% {
     opacity: 1;
-    transform: translateX(0vw) translateY(60px);
+    transform: translateX(0vw) translateY(40px);
   }
   75% {
     opacity: 1;
-    transform: translateX(50vw) translateY(120px);
+    transform: translateX(50vw) translateY(140px);
   }
   100% {
     opacity: 1;
-    transform: translateX(100vw) translateY(0);
+    transform: translateX(100vw) translateY(40px);
   }
 }
 
 .bounce-left-to-right-enter-active {
-  animation: bounceLeftToRight 4s linear forwards;
+  animation: bounceLeftToRight 3s linear forwards;
+}
+
+.fade-in-down-enter-active {
+  animation: fadeInDown 1.5s ;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.speak {
+  animation: Speak 0.25s 0s 4;
+}
+
+@keyframes Speak {
+  0% {
+    transform-origin: 70% 60%; 
+    transform:  scale(0.9);
+  }
+  100%{
+    transform-origin: 70% 60%; 
+    transform: scale(1.1);
+  }
+}
+
+.dot1{
+  animation: Jump 0.5s 0s 1;
+}
+.dot2{
+  animation: Jump 0.5s 0.5s 1;
+}
+.dot3{
+  animation: Jump 0.5s 1s 1;
+}
+.dot4{
+  animation: Jump 0.5s 1.5s 1;
+}
+.dot5{
+  animation: Jump 0.5s 2s 1;
+}
+.dot6{
+  animation: Jump 0.5s 2.5s 1;
+}
+
+@keyframes Jump {
+  0% {
+    transform: translateY(0);
+  }
+  0% {
+    transform: translateY(-5%); 
+  }
+  100%{
+    transform: translateY(0);
+  }
 }
 
 .action-button {

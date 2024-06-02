@@ -211,9 +211,9 @@
         class="animate__animated animate__bounceInUp">
       <img src="@/assets/story6/16-字下.png" alt="" style="position:absolute;top: 70vh;left:35vw;width:30vw"
         class="animate__animated animate__fadeInDown">
-      <img src="@/assets/story6/乱入的zy.png" alt="" class="imgZY">
-      <img src="@/assets/story6/乱入的zy-字.png" alt="" class="imgZYWord">
-      <img src="@/assets/story6/乱入arrow.png" alt="" class="imgZYArrow">
+      <img src="@/assets/story6/乱入的zy.png" alt="" class="imgZY" v-if="animateShow[currentPage]>0">
+      <img src="@/assets/story6/乱入的zy-字.png" alt="" class="imgZYWord" v-if="animateShow[currentPage]>4">
+      <img src="@/assets/story6/乱入arrow.png" alt="" class="imgZYArrow" :class="{'animate__animated animate__swing':animateShow[currentPage]>1,'jump':animateShow[currentPage]>3}"  v-if="animateShow[currentPage]>2">
     </div>
 
   </div>
@@ -238,7 +238,7 @@ export default {
       fromRightIn: new Array(16).fill(false),
       fromLeftOut: new Array(16).fill(false),
       fromRightOut: new Array(16).fill(false),
-      animateCount: [0, 1, 1, 0, 4, 4, 2, 3, 1, 0, 0, 0, 2, 0, 0, 3],//用于展示动画属性
+      animateCount: [0, 1, 1, 0, 4, 4, 2, 3, 1, 0, 0, 0, 2, 0, 0, 5],//用于展示动画属性
       animateShow: new Array(16).fill(0),
       showLeftArrow: false,
       showRightArrow: true,
@@ -521,5 +521,17 @@ export default {
   bottom: 12vh;
   width: 10vw;
   right: 18vw;
+}
+
+@keyframes Jump{
+  0%,100% {
+    transform: rotate(-15deg) scale(1);
+  }
+  50% {
+    transform: rotate(0deg) scale(1.05);
+  }
+}
+.jump{
+  animation: Jump 1.5s 0s infinite;
 }
 </style>

@@ -256,7 +256,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .about {
 
   background-color: rgb(239, 232, 224);

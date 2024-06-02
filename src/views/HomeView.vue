@@ -12,8 +12,9 @@
   <div class="story">
     <!-- v-show="ifshow2" -->
     <section class="p1" style="height: 100vh;">
-      <img class="onel" src="../assets/首页8/故事1字1.png" style="top:40%;left:20%;z-index:1">
-      <div class="b_onel">
+      <img class="onel" src="../assets/首页8/故事1字1.png"
+        style="width: 80%;left: 0;top: 0;right: 0;bottom: 0;margin: auto;z-index:1">
+      <div class="b_onel" style="width: 100%;left: 0;top: 0;right: 0;bottom: 0;margin: auto">
         <img src="../assets/首页8/荷包蛋.png" style="width:200px;left:5%;top:10%">
         <img src="../assets/首页8/洋葱人.png" style="width:200px;left:30%;top:20%">
         <img src="../assets/首页8/西红柿.png" style="width:200px;left:10%;bottom:5%">
@@ -23,7 +24,7 @@
     </section>
 
     <section class="p2" style="height: 100vh;">
-      <img class="twos" src="../assets/首页8/故事1.1.png" style="top:10%;">
+      <img class="twos" src="../assets/首页8/故事1.1.png" style="width: 60%;left: 0;top: 0;right: 0;bottom: 0;margin: auto">
     </section>
 
     <section class="p3" style="height: 100vh;">
@@ -39,8 +40,8 @@
     </section>
 
     <section class="p5" style="height: 100vh;">
-      <img class="p4_2l" src="../assets/首页8/p4.2l.png" style="height:15%;top: 10%;">
-      <img class="p4_2s" src="../assets/首页8/p4.2s.png" style="height:60%;bottom: 5%;">
+      <img class="p4_2l" src="../assets/首页8/p4.2l.png" style="width: 80%;top: 10%;">
+      <img class="p4_2s" src="../assets/首页8/p4.2s.png" style="width:50%;bottom: 5%;">
 
       <img class="p5downegg" src="../assets/首页8/白蛋.png" style="height:20%;left:7%;bottom: 0%;">
       <img class="p5downegg" src="../assets/首页8/黑蛋.png" style="height:15%;left:30%;bottom: 0%;">
@@ -82,11 +83,6 @@ export default {
     this.disapear();
   },
   methods: {
-    // mounted() {
-    //   // 切换页面时滚动条自动滚动到顶部
-    //   window.scrollTo(0, 0);
-    //   this.disapear();
-    // },
     goto(route) {
       this.$router.push(route);
     },
@@ -233,8 +229,6 @@ section {
 
 .story img {
   position: absolute;
-  /* left:20%; */
-  /* background-color: #f2eadf; */
 }
 
 .container {

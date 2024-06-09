@@ -195,6 +195,11 @@ gsap@^3.12.5:
   resolved "https://registry.npmjs.org/gsap/-/gsap-3.12.5.tgz"
   integrity sha512-srBfnk4n+Oe/ZnMIOXt3gT605BX9x5+rh/prT2F1SsNJsU1XuMiP0E2aptW481OnonOGACZWBqseH5Z7csHxhQ==
 
+javascript-detect-element-resize@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.npmjs.org/javascript-detect-element-resize/-/javascript-detect-element-resize-0.5.3.tgz"
+  integrity sha512-XbToz3yieLy8d3JRq2JXv+p7iWWBNSKU+7MvUB2toYc3Fv6Um8OJLNKySTa95AnfMrv5xynzDFq/N1PrXyibFg==
+
 lethargy@^1.0.2:
   version "1.0.9"
   resolved "https://registry.npmjs.org/lethargy/-/lethargy-1.0.9.tgz"
@@ -208,6 +213,11 @@ locomotive-scroll@^4.1.4:
     bezier-easing "^2.1.0"
     smoothscroll-polyfill "^0.4.4"
     virtual-scroll "^1.5.2"
+
+lodash@^4.16.1:
+  version "4.17.21"
+  resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 magic-string@^0.30.10:
   version "0.30.10"
@@ -308,6 +318,21 @@ vite@^5.0.0, vite@^5.2.8:
     rollup "^4.13.0"
   optionalDependencies:
     fsevents "~2.3.3"
+
+vue-mixins@^0.3.0:
+  version "0.3.6"
+  resolved "https://registry.npmjs.org/vue-mixins/-/vue-mixins-0.3.6.tgz"
+  integrity sha512-YxXycJTp9qabL8igaYZJ9/znma/tt9HSHF5G075sX/1EPLBrWxPbmpbPhf/SWpEwBrjo2ETWI5Z/F8N/r2MzAQ==
+  dependencies:
+    javascript-detect-element-resize "^0.5.3"
+    lodash "^4.16.1"
+
+vue-parallax@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/vue-parallax/-/vue-parallax-1.1.1.tgz"
+  integrity sha512-ZEuNT9orip9IjAtx4fuAUnYRultpOOBAeqJ33CPLL6wER/PqxOAlHNgEsNw+IqBNhwfvqqFRxo3fr7ThK81ogQ==
+  dependencies:
+    vue-mixins "^0.3.0"
 
 vue-router@^4.3.0:
   version "4.3.2"

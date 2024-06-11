@@ -227,6 +227,7 @@ export default {
   opacity: 0.5;
 }
 .main-container {
+  background-color: #f2eadf; 
   display: flex;
   transition: transform 0.5s;
   height: 420%;

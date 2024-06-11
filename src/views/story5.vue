@@ -278,6 +278,9 @@ export default {
 };
 </script>
 <style scoped>
+body{
+  background-color: #f2eadf;  
+}
 section {
   height: 100vh;
   color: #fff;
@@ -287,6 +290,7 @@ section {
 }
 
 .container{
+  background-color: #f2eadf; 
   cursor: url(../assets/story5/cursor.png),auto;
 }
 

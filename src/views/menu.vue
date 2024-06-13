@@ -27,10 +27,10 @@
 
         <div class="box">
           <div class="images">
-            <img src="../assets/menu/story3_1.png">
+            <img src="../assets/menu/story3_1.png" style="scale: 1.2;">
           </div>
           <div class="content" @click="goto('/story3')">
-            <img src="../assets/menu/story3_2.png" alt="">
+            <img src="../assets/menu/story3_2.png" alt="" style="scale: 1.1;">
           </div>
         </div>
 

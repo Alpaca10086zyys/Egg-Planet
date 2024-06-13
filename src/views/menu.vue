@@ -31,10 +31,10 @@
 
         <div class="box">
           <div class="images">
-            <img src="../assets/story3/封面蛋.png" >
+            <img src="../assets/story3/封面蛋.png" style="scale: 1.2;">
           </div>
           <div class="content" @click="goto('/story3')">
-            <img src="../assets/story3/封面遮罩.png" alt="">
+            <img src="../assets/story3/封面遮罩.png" alt="" style="scale: 1.1;">
           </div>
         </div>
 

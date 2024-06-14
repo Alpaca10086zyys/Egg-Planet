@@ -1,5 +1,6 @@
 <template>
   <div class="story">
+    
     <!-- v-show="ifshow2" -->
     <section class="p1" style="height: 100vh;">
       <img class="onel" src="../assets/首页8/故事1字1.png"
